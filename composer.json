@@ -1,0 +1,47 @@
+{
+	"name": "therakib7/wc-smart-cart",
+	"description": "WooCommerce Smart Cart",
+	"version": "0.1.0",
+	"license": "GPL-3.0",
+	"authors": [
+		{
+			"name": "WooCommerce Smart Cart",
+			"email": "therakib7@gmail.com"
+		}
+	],
+	"require": {
+		"php": "^7.4 || ^8.0"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0",
+		"phpcompatibility/phpcompatibility-wp": "dev-master",
+		"wp-phpunit/wp-phpunit": "dev-master",
+		"yoast/phpunit-polyfills": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"aThemes\\WCSmartCart\\": "includes/",
+			"aThemes\\WCSmartCart\\Tests\\": "tests/phpunit/"
+		}
+	},
+	"scripts": {
+		"phpcs": [
+			"phpcs -ps"
+		],
+		"phpcbf": [
+			"phpcbf -p"
+		],
+		"test": [
+			"phpunit"
+		],
+		"test:all": [
+			"phpcs -ps & phpunit"
+		]
+	},
+	"minimum-stability": "dev",
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
+}

@@ -1,0 +1,94 @@
+/**
+ * This style initializes and manages various styles for the web page.
+ * It includes SCSS compiler and autoprefix
+ *
+ * @since 0.1.0
+ */
+
+#wc-smart-cart-container {
+
+	.wc-smart-cart {
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 20px;
+		width: 300px;
+		position: fixed;
+		top: 50px;
+		right: -300px;
+		z-index: 99999;
+	}
+
+	.wc-smart-cart-close {
+		position: absolute;
+		right: 10px;
+		top: 5px;
+		padding: 0;
+		cursor: pointer;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		color: #3a3a3a;
+		font-size: 25px;
+		line-height: 1;
+	}
+
+	.wc-smart-cart-label {
+		font-size: 18px;
+		line-height: 1;
+		font-weight: 500;
+		font-family: inherit;
+		margin: 0;
+		margin-bottom: 15px;
+	}
+
+	.wc-smart-cart-content {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.wc-smart-cart-img {
+		max-width: 100px;
+		margin-right: 20px;
+	}
+
+	.wc-smart-cart-title {
+		font-size: 16px;
+		line-height: 1.4;
+		font-weight: 500;
+		font-family: inherit;
+		margin: 0;
+		margin-bottom: 10px;
+	}
+
+	.wc-smart-cart-price {
+		font-size: 14px;
+		line-height: 1;
+		font-family: inherit;
+		color: #606060;
+		margin-bottom: 10px;
+	}
+
+	.wc-smart-cart-price .wc-smart-cart-price-label {
+		color: #333;
+	}
+
+	.wc-smart-cart-btn {
+		background-color: #111;
+		color: #fff;
+		display: block;
+		text-align: center;
+		margin-top: 15px;
+		padding: 10px 20px;
+		font-size: 16px;
+		line-height: 1;
+		font-family: inherit;
+		text-decoration: none;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+	}
+
+	.wc-smart-cart-btn:hover {
+		background-color: #636363;
+	}
+}

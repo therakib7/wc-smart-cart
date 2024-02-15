@@ -1,0 +1,51 @@
+{
+	"name": "wc-smart-cart",
+	"description": "A smart cart plugin for WooCommerce",
+	"version": "0.1.0",
+	"license": "GPL-3.0",
+	"authors": [
+		{
+			"name": "aThemes",
+			"email": "therakib7@gmail.com"
+		}
+	],
+	"main": "src/index.tsx",
+	"scripts": {
+		"start": "wp-scripts start",
+		"start:hot": "wp-scripts start --hot",
+		"build": "wp-scripts build",
+		"wp-env": "wp-env",
+		"env:start": "wp-env start",
+		"env:clean": "wp-env clean",
+		"env:destroy": "wp-env destroy",
+		"env:start:coverage": "wp-env start -- --xdebug=profile,trace,debug",
+		"env:stop": "wp-env stop",
+		"format": "wp-scripts format",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"makepot": "wp i18n make-pot --domain='wc-smart-cart' --exclude='node_modules,src,vendor,assets' . --headers='{\"Last-Translator\":\"therakib7@gmail.com\",\"Report-Msgid-Bugs-To\":\"https://github.com/therakib7/wc-smart-cart/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') aThemes. All Rights Reserved.\" languages/wc-smart-cart.pot",
+		"zip": "node assets/js/zip",
+		"version": "node assets/js/version-replace",
+		"release": "npm run build && npm run makepot && npm run version && npm run zip",
+		"test:unit": "wp-scripts test-unit-js --config jest-unit.config.js",
+		"test:e2e": "npx playwright test --config ./tests/e2e/playwright.config.ts --reporter=list",
+		"test:e2e:watch": "npx playwright test --config ./tests/e2e/playwright.config.ts --debug",
+		"test:e2e:ui": "npx playwright test --config ./tests/e2e/playwright.config.ts --ui",
+		"test:e2e:tracing": "npx playwright test --config ./tests/e2e/playwright.config.ts --trace on"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.20.5",
+		"react-router-dom": "^6.22.0",
+		"react-toastify": "^10.0.4"
+	},
+	"devDependencies": {
+		"@wordpress/api-fetch": "^6.48.0",
+		"@wordpress/element": "^5.28.0",
+		"@wordpress/i18n": "^4.51.0",
+		"@wordpress/scripts": "^27.0.0",
+		"autoprefixer": "^10.4.17",
+		"cssnano": "^6.0.3",
+		"eslint": "^8.56.0",
+		"postcss": "^8.4.35",
+		"tailwindcss": "^3.4.1"
+	}
+}
