@@ -15,7 +15,7 @@ import { createHashRouter } from 'react-router-dom';
 import Settings from '@pages/settings';
 import NotFound from '@pages/404';
 
-const Router = createHashRouter([
+const Router = createHashRouter( [
 	{
 		path: '/',
 		element: <Settings />,
@@ -28,6 +28,6 @@ const Router = createHashRouter([
 		path: '*',
 		element: <NotFound />,
 	},
-]);
+] );
 
 export default Router;

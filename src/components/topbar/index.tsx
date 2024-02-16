@@ -5,16 +5,14 @@ interface Props {
 	children: ReactNode;
 }
 
-const Topbar: React.FC<Props> = ({ label, children }) => {
+const Topbar: React.FC< Props > = ( { label, children } ) => {
 	return (
-		<div className='wc-smart-cart-topbar'>
-			<div className='wc-smart-cart-topbar-content flex justify-between items-center'>
+		<div className="wc-smart-cart-topbar">
+			<div className="wc-smart-cart-topbar-content flex justify-between items-center">
 				<h2 className="wc-smart-cart-topbar-label text-gray-900">
-					{label}
+					{ label }
 				</h2>
-				<div className="wc-smart-cart-topbar-action">
-					{children}
-				</div>
+				<div className="wc-smart-cart-topbar-action">{ children }</div>
 			</div>
 		</div>
 	);

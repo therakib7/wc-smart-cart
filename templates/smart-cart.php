@@ -1,7 +1,7 @@
 <?php
 /**
  * Template for showing smart cart on sidebar
- * 
+ *
  * @since 0.1.0
  *
  * @return void
@@ -64,13 +64,18 @@ if ( $settings['position'] === 'top' ) {
 
 <div 
     class="<?php echo esc_attr( $classes ); ?>" 
-    style="<?php
-        if ( $product_image_id && $settings['layout'] === 'two' ) {
-            echo 'background-image: url(' . esc_url( wp_get_attachment_image_url( $product_image_id, 'medium' ) ) . ')';
-        }
-    ?>"
+    style="
+    <?php
+	if ( $product_image_id && $settings['layout'] === 'two' ) {
+		echo 'background-image: url(' . esc_url( wp_get_attachment_image_url( $product_image_id, 'medium' ) ) . ')';
+	}
+    ?>
+    "
 >
-    <?php if ( $settings['layout'] === 'two' ) { echo '<div class="wc-smart-cart-overlay">'; } ?>
+    <?php
+    if ( $settings['layout'] === 'two' ) {
+		echo '<div class="wc-smart-cart-overlay">'; }
+	?>
 
     <button class="wc-smart-cart-close">&times;</button>
 
@@ -87,11 +92,14 @@ if ( $settings['position'] === 'top' ) {
 
         <div class="wc-smart-cart-details">
             <h3 class="wc-smart-cart-title"><?php echo esc_html( $product_title ); ?></h3>
-            <p class="wc-smart-cart-price"><span class="wc-smart-cart-price-label"><?php esc_html_e( 'Price:', 'wc-smart-cart' ); ?></span> <?php echo wp_kses( wc_price( $product->get_price() ), array( 'span' => array() ) ); ?></p>
+            <p class="wc-smart-cart-price"><span class="wc-smart-cart-price-label"><?php esc_html_e( 'Price:', 'wc-smart-cart' ); ?></span> <?php echo wp_kses( wc_price( $product->get_price() ), [ 'span' => [] ] ); ?></p>
         </div>
     </div>
 
     <a class="wc-smart-cart-btn" href="<?php echo esc_url( wc_get_cart_url() ); ?>"><?php esc_html_e( 'View Cart', 'wc-smart-cart' ); ?></a>
     
-    <?php if ( $settings['layout'] === 'two' ) { echo '</div>'; } ?>
+    <?php
+    if ( $settings['layout'] === 'two' ) {
+		echo '</div>'; }
+	?>
 </div>

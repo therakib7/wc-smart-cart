@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{js,jsx,ts,tsx}'],
+	content: [ './src/**/*.{js,jsx,ts,tsx}' ],
 	media: false,
 	theme: {
 		extend: {
@@ -10,7 +10,7 @@ module.exports = {
 		},
 		variants: {
 			extend: {
-				opacity: ['disabled'],
+				opacity: [ 'disabled' ],
 			},
 		},
 	},

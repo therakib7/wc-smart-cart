@@ -22,7 +22,7 @@ class Menu {
         $capability    = 'manage_options';
 
         add_menu_page(
-            esc_html__( 'WC Smart Cart', 'wc-smart-cart' ),
+            esc_html__( 'WooCommerce Smart Cart', 'wc-smart-cart' ),
             esc_html__( 'WC Smart Cart', 'wc-smart-cart' ),
             $capability,
             $slug,

@@ -17,11 +17,11 @@ import { queryClient } from '@utils/react-query';
 import App from './App';
 import '@styles/main.scss';
 
-const rootElement = document.getElementById('wc-smart-cart');
-if (rootElement) {
-	createRoot(rootElement).render(
+const rootElement = document.getElementById( 'wc-smart-cart' );
+if ( rootElement ) {
+	createRoot( rootElement ).render(
 		<StrictMode>
-			<QueryClientProvider client={queryClient}>
+			<QueryClientProvider client={ queryClient }>
 				<App />
 			</QueryClientProvider>
 		</StrictMode>

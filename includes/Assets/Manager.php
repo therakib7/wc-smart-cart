@@ -151,33 +151,68 @@ class Manager
     public function enqueue_assets()
     {
 
-        wp_enqueue_style('wc-smart-cart');
-        wp_enqueue_script('wc-smart-cart');
-
-        // Localize the script with the AJAX URL
-        $nonce = wp_create_nonce('_wc_smart_cart_nonce');
-
         // get close time from settings
         $settings = [];
-        $option = get_option( Keys::SETTINGS );
-        if ( $option ) {
+        $option = get_option(Keys::SETTINGS);
+        if ($option) {
             $settings = $option;
         } else {
             $settings['close_after'] = 3;
+            $settings['display_condition'] = ['all'];
         }
 
-        $close_after = (int) apply_filters( 'wc_smart_cart_close_after', $settings['close_after'] );
-        $close_after *= 1000; // convert to miliseconds
+        $display_condition = $settings['display_condition'];
 
-        wp_localize_script(
-            'wc-smart-cart',
-            'wc_smart_cart_params',
-            [
-                'ajax_url' => admin_url('admin-ajax.php'),
-                'nonce'    => $nonce,
-                'close_after' => $close_after
-            ]
-        );
+        $enqueue_scripts = in_array('all', $display_condition);
+
+        if ( !$enqueue_scripts ) {
+            $is_shop = is_shop();
+            $is_product = is_product();
+            $is_product_category = is_product_category() || is_tax('product_cat');
+            $is_product_tag = is_product_tag() || is_tax('product_tag');
+            $is_tax = is_tax();
+            $is_cart = is_cart();
+
+            $conditions = [
+                'shop' => $is_shop,
+                'product-single' => $is_product,
+                'product-categories' => $is_product_category,
+                'product-archive' => $is_product_category || $is_product_tag || $is_tax,
+                'product-tags' => $is_product_tag,
+                'product-attributes' => $is_tax,
+                'cart' => $is_cart
+            ];
+
+            foreach ($display_condition as $condition) {
+                if (isset($conditions[$condition]) && $conditions[$condition]) {
+                    $enqueue_scripts = true;
+                    break;
+                }
+            }
+        }
+
+        // Enqueue the script if it matches the display condition
+        if ( $enqueue_scripts ) {
+
+            wp_enqueue_style('wc-smart-cart');
+            wp_enqueue_script('wc-smart-cart');
+
+            // Localize the script with the AJAX URL
+            $nonce = wp_create_nonce('_wc_smart_cart_nonce');
+
+            $close_after = (int) apply_filters('wc_smart_cart_close_after', $settings['close_after']);
+            $close_after *= 1000; // convert to miliseconds
+
+            wp_localize_script(
+                'wc-smart-cart',
+                'wc_smart_cart_params',
+                [
+                    'ajax_url' => admin_url('admin-ajax.php'),
+                    'nonce'    => $nonce,
+                    'close_after' => $close_after
+                ]
+            );
+        }
     }
 
     /**

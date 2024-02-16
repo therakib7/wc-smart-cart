@@ -80,7 +80,7 @@ class Setting extends RestApi {
                 $settings['layout'] = 'one';
                 $settings['position'] = 'top';
                 $settings['close_after'] = '3';
-                $settings['display_condition'] = [];
+                $settings['display_condition'] = [ 'all' ];
             }
 
             return new \WP_REST_Response(

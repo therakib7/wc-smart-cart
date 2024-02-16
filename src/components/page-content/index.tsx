@@ -5,10 +5,10 @@ interface Props {
 	children: ReactNode;
 }
 
-const PageContent: React.FC<Props> = ({ className = '', children }) => {
+const PageContent: React.FC< Props > = ( { className = '', children } ) => {
 	return (
-		<div className={`wc-smart-cart-content ${className}`}>
-			{children}
+		<div className={ `wc-smart-cart-content ${ className }` }>
+			{ children }
 		</div>
 	);
 };

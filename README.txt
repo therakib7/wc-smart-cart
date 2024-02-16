@@ -1,20 +1,20 @@
 === Smart Cart for WooCommerce ===
-Contributors: wc-smart-cart
-Tags: woocommerce, cart, customize
+Contributors: athemes, therakib7
+Tags: woocommerce, cart, customization
 Requires at least: 5.8
 Tested up to: 6.4
 Requires PHP: 7.4
 Stable tag: 0.1.0
 License: GPL3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Author: WCSmartCart
-Author URI: https://therakib7.com
+Author: aThemes
+Author URI: https://athemes.com
 Donate link: [Your donation link if any]
 
-A starter plugin for WordPress that provides a foundational structure to build upon.
+Elevate your WooCommerce experience with Smart Cart: Simplify shopping, streamline checkout, and optimize your store effortlessly.
 
 == Description ==
-Smart Cart for WooCommerce is a simple, yet powerful starter plugin for WordPress. It is designed for developers who want to jumpstart their plugin development process. With a clean and understandable codebase, it's easy to customize and extend according to your needs.
+Enhance your WooCommerce experience with the Smart Cart plugin, designed to elevate your shopping journey. With Smart Cart for WooCommerce, enjoy a seamless and intuitive cart management system tailored to meet your needs. Explore advanced customization options, streamline checkout processes, and optimize your online store effortlessly. Smart Cart empowers merchants and shoppers alike with its user-friendly interface and robust features. Upgrade your WooCommerce store today with Smart Cart and unlock a world of possibilities in online shopping excellence.
 
 == Installation ==
 1. Upload `wc-smart-cart` to the `/wp-content/plugins/` directory.
@@ -23,10 +23,15 @@ Smart Cart for WooCommerce is a simple, yet powerful starter plugin for WordPres
 
 == Frequently Asked Questions ==
 = Is this plugin suitable for beginners? =
-Yes, it's designed to be user-friendly and is a great starting point for those new to WordPress plugin development.
+Absolutely. Smart Cart for WooCommerce is user-friendly and ideal for those venturing into WordPress plugin development.
+
+= How to use this plugin =
+
+* Navigate to the "WC Smart Cart" menu in your WordPress dashboard.
+* Customize settings according to your needs.
 
 = Where can I find documentation? =
-For detailed documentation, visit [https://therakib7.com](https://therakib7.com).
+For detailed documentation, visit [https://athemes.com/wc-smart-cart/docs](https://athemes.com/wc-smart-cart/docs).
 
 == Changelog ==
 = 0.1.0 =
@@ -40,8 +45,8 @@ This is the first version of Smart Cart for WooCommerce.
 1. [Description of screenshot]
 
 == Additional Information ==
-For more information and updates, visit the official website [https://therakib7.com](https://therakib7.com).
+For more information and updates, visit the official website [https://athemes.com](https://athemes.com).
 
 
 == License ==
-This plugin is licensed under the GPL3 License.
+This plugin is licensed under the GPL3.0 License.
