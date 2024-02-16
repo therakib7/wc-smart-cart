@@ -2,6 +2,7 @@
 
 namespace aThemes\WCSmartCart\Abstracts;
 
+use aThemes\WCSmartCart\Traits\Sanitizer;
 use WP_Error;
 use WP_REST_Controller;
 
@@ -12,6 +13,7 @@ use WP_REST_Controller;
  */
 abstract class RestApi extends WP_REST_Controller {
 
+    use Sanitizer;
 
     /**
      * Endpoint namespace.

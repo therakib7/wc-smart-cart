@@ -19,7 +19,7 @@ trait Sanitizer {
      *
      * @return mixed $sanitized value
      */
-    public function input_sanitize( $value, string $type, $array_map_type = 'text' ) {
+    public function input_sanitize( $value, string $type = 'text', $array_map_type = 'text' ) {
         $sanitized = '';
 
         switch ( $type ) {

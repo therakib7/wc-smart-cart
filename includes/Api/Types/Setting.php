@@ -3,6 +3,7 @@
 namespace aThemes\WCSmartCart\Api\Types;
 
 use aThemes\WCSmartCart\Abstracts\RestApi;
+use aThemes\WCSmartCart\Helpers\Keys;
 
 /**
  * API Setting class.
@@ -62,15 +63,6 @@ class Setting extends RestApi {
         $param = $req->get_params();
         $wp_err = new \WP_Error();
 
-        $tab = isset( $param['tab'] ) ? sanitize_text_field( $param['tab'] ) : null;
-
-        if ( empty( $tab ) ) {
-            $wp_err->add(
-                'field',
-                esc_html__( 'Tab is missing', 'wc-smart-cart' )
-            );
-        }
-
         if ( $wp_err->get_error_messages() ) {
             return new \WP_REST_Response(
                 [
@@ -79,22 +71,22 @@ class Setting extends RestApi {
                 ], 200
             );
         } else {
-            $data = [];
+            $settings = [];
+            $option = get_option( Keys::SETTINGS );
 
-            if ( $tab === 'test_tab' ) {
-                $option = get_option( 'WC_SMART_CART_' . $tab );
-
-                if ( $option ) {
-                    $data = $option;
-                } else {
-                    $data['status'] = false;
-                }
+            if ( $option ) {
+                $settings = $option;
+            } else {
+                $settings['layout'] = 'one';
+                $settings['position'] = 'top';
+                $settings['close_after'] = '3';
+                $settings['display_condition'] = [];
             }
 
             return new \WP_REST_Response(
                 [
 					'success'  => true,
-					'data' => $data,
+					'data' => [ 'form' => $settings ],
                 ], 200
             );
         }
@@ -113,12 +105,17 @@ class Setting extends RestApi {
         $param = $req->get_params();
         $wp_err = new \WP_Error();
 
-        $tab = isset( $param['tab'] ) ? sanitize_text_field( $param['tab'] ) : '';
-
-        if ( empty( $tab ) ) {
+        if ( isset( $param['close_after'] ) && empty( $param['close_after'] ) ) {
             $wp_err->add(
                 'field',
-                esc_html__( 'Tab is missing', 'wc-smart-cart' )
+                esc_html__( 'Close after is missing', 'wc-smart-cart' )
+            );
+        }
+
+        if ( isset( $param['display_condition'] ) && empty( $param['display_condition'] ) ) {
+            $wp_err->add(
+                'field',
+                esc_html__( 'Display condition is missing', 'wc-smart-cart' )
             );
         }
 
@@ -130,20 +127,26 @@ class Setting extends RestApi {
                 ], 200
             );
         } else {
-            $data = [];
+            $settings = [];
 
-            if ( $tab === 'test' ) {
-                $data['status'] = isset( $param['status'] )
-                    ? rest_sanitize_boolean( $param['status'] )
-                    : null;
+            $settings['layout'] = isset( $param['layout'] )
+                ? $this->input_sanitize( $param['layout'] )
+                : 'one';
+            $settings['position'] = isset( $param['position'] )
+                ? $this->input_sanitize( $param['position'] )
+                : 'one';
+            $settings['close_after'] = isset( $param['close_after'] )
+                ? $this->input_sanitize( $param['close_after'] )
+                : 'one';
+            $settings['display_condition'] = isset( $param['display_condition'] )
+                ? $this->input_sanitize( $param['display_condition'], 'map' )
+                : 'one';
 
-                $option = update_option( 'WC_SMART_CART_' . $tab, $data );
-            }
+            update_option( Keys::SETTINGS, $settings );
 
             return new \WP_REST_Response(
                 [
 					'success'  => true,
-					'data' => null,
                 ], 200
             );
         }

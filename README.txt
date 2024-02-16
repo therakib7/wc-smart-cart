@@ -1,6 +1,6 @@
-=== WooCommerce Smart Cart ===
+=== Smart Cart for WooCommerce ===
 Contributors: wc-smart-cart
-Tags: wordpress, plugin, starter
+Tags: woocommerce, cart, customize
 Requires at least: 5.8
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -14,7 +14,7 @@ Donate link: [Your donation link if any]
 A starter plugin for WordPress that provides a foundational structure to build upon.
 
 == Description ==
-WooCommerce Smart Cart is a simple, yet powerful starter plugin for WordPress. It is designed for developers who want to jumpstart their plugin development process. With a clean and understandable codebase, it's easy to customize and extend according to your needs.
+Smart Cart for WooCommerce is a simple, yet powerful starter plugin for WordPress. It is designed for developers who want to jumpstart their plugin development process. With a clean and understandable codebase, it's easy to customize and extend according to your needs.
 
 == Installation ==
 1. Upload `wc-smart-cart` to the `/wp-content/plugins/` directory.
@@ -34,7 +34,7 @@ For detailed documentation, visit [https://therakib7.com](https://therakib7.com)
 
 == Upgrade Notice ==
 = 0.1.0 =
-This is the first version of WooCommerce Smart Cart.
+This is the first version of Smart Cart for WooCommerce.
 
 == Screenshots ==
 1. [Description of screenshot]

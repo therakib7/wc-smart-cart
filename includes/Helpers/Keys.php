@@ -35,4 +35,13 @@ class Keys {
      * @since 0.1.0
      */
     const VERSION = self::PREFIX . 'version';
+
+    /**
+     * WCSmartCart installed option key.
+     *
+     * @var string
+     *
+     * @since 0.1.0
+     */
+    const SETTINGS = self::PREFIX . 'settings_general';
 }

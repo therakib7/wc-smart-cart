@@ -3,7 +3,6 @@
 namespace aThemes\WCSmartCart\Api;
 
 use aThemes\WCSmartCart\Api\Types\{
-    Todo,
     Setting,
 };
 
@@ -39,7 +38,6 @@ class Controller {
         $this->class_map = apply_filters(
             'wc_smart_cart_rest_api_class_map',
             [
-                Todo::class,
                 Setting::class,
             ]
         );

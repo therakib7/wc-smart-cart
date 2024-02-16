@@ -8,7 +8,7 @@
  * @copyright  2023 aThemes
  *
  * @wordpress-plugin
- * Plugin Name:       WooCommerce Smart Cart
+ * Plugin Name:       Smart Cart for WooCommerce 
  * Plugin URI:        https://wordpress.org/plugins/wc-smart-cart
  * Description:       A smart cart plugin for WooCommerce
  * Version:           0.1.0

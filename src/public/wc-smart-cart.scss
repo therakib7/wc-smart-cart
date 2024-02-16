@@ -11,12 +11,33 @@
 		background-color: #fff;
 		border: 1px solid #ccc;
 		border-radius: 5px;
-		padding: 20px;
 		width: 300px;
 		position: fixed;
-		top: 50px;
 		right: -300px;
 		z-index: 99999;
+	}
+
+	.wc-smart-cart.wc-smart-cart-position-top {
+		top: 50px;
+	}
+
+	.wc-smart-cart.wc-smart-cart-position-bottom {
+		bottom: 50px;
+	}
+
+	.wc-smart-cart.wc-smart-cart-layout-one {
+		padding: 20px;
+	}
+
+	.wc-smart-cart.wc-smart-cart-layout-two {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+
+		.wc-smart-cart-overlay {
+			padding: 20px;
+			background-color: hsl(0deg 0% 100% / 50%);
+		}
 	}
 
 	.wc-smart-cart-close {
@@ -38,6 +59,7 @@
 		line-height: 1;
 		font-weight: 500;
 		font-family: inherit;
+		color: #111;
 		margin: 0;
 		margin-bottom: 15px;
 	}
@@ -57,6 +79,7 @@
 		line-height: 1.4;
 		font-weight: 500;
 		font-family: inherit;
+		color: #111;
 		margin: 0;
 		margin-bottom: 10px;
 	}

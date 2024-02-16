@@ -2,6 +2,8 @@
 
 namespace aThemes\WCSmartCart\Assets;
 
+use aThemes\WCSmartCart\Helpers\Keys;
+
 /**
  * Asset Manager class.
  *
@@ -154,12 +156,26 @@ class Manager
 
         // Localize the script with the AJAX URL
         $nonce = wp_create_nonce('_wc_smart_cart_nonce');
+
+        // get close time from settings
+        $settings = [];
+        $option = get_option( Keys::SETTINGS );
+        if ( $option ) {
+            $settings = $option;
+        } else {
+            $settings['close_after'] = 3;
+        }
+
+        $close_after = (int) apply_filters( 'wc_smart_cart_close_after', $settings['close_after'] );
+        $close_after *= 1000; // convert to miliseconds
+
         wp_localize_script(
             'wc-smart-cart',
-            'wc_smart_cart',
+            'wc_smart_cart_params',
             [
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce'    => $nonce,
+                'close_after' => $close_after
             ]
         );
     }

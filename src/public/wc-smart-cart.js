@@ -52,11 +52,11 @@ import './wc-smart-cart.scss';
 			jQuery(document.body).on('added_to_cart wc-blocks_added_to_cart', function (event, fragments, cart_hash, button) {
 
 				jQuery.ajax({
-					url: wc_smart_cart.ajax_url,
+					url: wc_smart_cart_params.ajax_url,
 					type: 'POST',
 					data: {
 						action: 'wc_smart_cart_content',
-						nonce: wc_smart_cart.nonce
+						nonce: wc_smart_cart_params.nonce
 					},
 					success: function (data) {
 						if (data.success) {
@@ -69,18 +69,31 @@ import './wc-smart-cart.scss';
 							// Attach click event to close button
 							jQuery('#wc-smart-cart-container .wc-smart-cart-close').on('click', function (e) {
 								e.preventDefault();
-								// Hide cart with slide animation
-								jQuery('#wc-smart-cart-container .wc-smart-cart').animate({ right: '-330px' }, 'slow', function () {
-									// Clear cart content after animation completes
-									jQuery('#wc-smart-cart-container').html('');
-								});
+								wcSmartCartInit.closeSmartCart();
 							});
+
+							// Automatically close the cart after specific seconds
+							setTimeout(function () {
+								wcSmartCartInit.closeSmartCart();
+							}, wc_smart_cart_params.close_after); // 5000 milliseconds = 5 seconds
 						}
 					}
 				});
 			});
 
+		},
 
+		/**
+		 * Close WC cart when added to cart
+		 * 
+		 * @since 1.0.0
+		 * 
+		 */
+		closeSmartCart: function () {
+			jQuery('#wc-smart-cart-container .wc-smart-cart').animate({ right: '-330px' }, 'slow', function () {
+				// Clear cart content after animation completes
+				jQuery('#wc-smart-cart-container').html('');
+			});
 		}
 	}
 
